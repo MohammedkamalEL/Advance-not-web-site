@@ -1,10 +1,28 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { createBrowserRouter, Navigate, RouterProvider, type RouteObject } from 'react-router-dom'
+import { Container } from "react-bootstrap";
+
+
 import App from './App.tsx'
+import New from './pages/New.tsx'
+
+
+// import { BrowserRouter } from 'react-router-dom'
+
+const routers: RouteObject[] = [
+  { path: '/', element: <App />, },
+  { path: 'new', element: <New />, },
+  { path: '*', element: <Navigate to='/' /> }
+
+]
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Container>
+    <RouterProvider router={createBrowserRouter(routers)} />
+    </Container>
   </StrictMode>,
 )
