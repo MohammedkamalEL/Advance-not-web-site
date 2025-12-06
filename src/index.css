@@ -19,3 +19,12 @@
   padding: 2rem;
   text-align: center;
 } */
+
+.hoverEffect{
+  transform: translateY(0);
+  transition: all 100ms ease-in ;
+}
+.hoverEffect:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 5px 8px 0 rgba(0, 0,0,0.2);
+}

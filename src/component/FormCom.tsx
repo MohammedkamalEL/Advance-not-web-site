@@ -1,17 +1,17 @@
 import { useRef, useState, type FormEvent } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { handelForm } from "../util/handelForm";
 import Select from "@zener/react-select";
 import "@zener/react-select/index.css";
 
-// 18:31
 
 export default function FormCom() {
+  const navegit = useNavigate()
   const titleRef = useRef<HTMLInputElement>(null!);
   const textareaRef = useRef<HTMLTextAreaElement>(null!);
   const [selected, setSelected] = useState<string[]>([]);
-  const options = [
+  const options: { label: string, value: string }[] = [
     { label: "Laern one houer", value: "Laern one houer" },
     { label: "قرائة قران", value: "قرائة قران" },
     { label: "Next.js", value: "Next.js" },
@@ -21,8 +21,13 @@ export default function FormCom() {
 
   function handelSubmitForm(event: FormEvent) {
     event.preventDefault()
-    handelForm(titleRef, textareaRef)
+    handelForm(titleRef, textareaRef, selected)
+    titleRef.current.value = ''
+    textareaRef.current.value = ''
+    setSelected([])
+    navegit('/note')
   }
+
 
   return (
     <Form onSubmit={handelSubmitForm}>
@@ -35,6 +40,7 @@ export default function FormCom() {
           <Form.Group as={Col} controlId="tag">
             <Form.Label >Tags</Form.Label>
             <Select
+              className='p-2 border rounded'
               creatable
               multiple
               value={selected}
@@ -54,7 +60,7 @@ export default function FormCom() {
       <Stack direction='horizontal' gap={3} className='mt-4 justify-content-end'>
         <Button variant='outline-primary' type='submit'>Save</Button>
         <div className="vr" />
-        <Link to='..'>
+        <Link to='/note'>
           <Button variant='outline-danger' type='button'>Cancle</Button>
         </Link>
       </Stack>

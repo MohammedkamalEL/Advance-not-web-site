@@ -8,12 +8,14 @@ import { Container } from "react-bootstrap";
 
 import App from './App.tsx'
 import New from './pages/New.tsx'
+import NotList from './pages/NotList.tsx'
 
 
 // import { BrowserRouter } from 'react-router-dom'
 
 const routers: RouteObject[] = [
   { path: '/', element: <App />, },
+  { path: '/note', element: <NotList />, },
   { path: 'new', element: <New />, },
   { path: '*', element: <Navigate to='/' /> }
 

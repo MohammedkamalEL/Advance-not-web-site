@@ -1,5 +1,5 @@
 
-
+// 41:20
 function App() {
   return (
     <h1 className="btn">
@@ -14,4 +14,4 @@ function App() {
 export default App;
 
 // tecnecs
-// bootstrap / React Router
+// bootstrap / React Router / typescript
