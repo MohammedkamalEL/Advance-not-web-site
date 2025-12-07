@@ -9,6 +9,8 @@ import { Container } from "react-bootstrap";
 import App from './App.tsx'
 import New from './pages/New.tsx'
 import NotList from './pages/NotList.tsx'
+import NoteREUD from './pages/NoteREUD.tsx'
+import EditNote from './pages/EditNote.tsx'
 
 
 // import { BrowserRouter } from 'react-router-dom'
@@ -16,7 +18,9 @@ import NotList from './pages/NotList.tsx'
 const routers: RouteObject[] = [
   { path: '/', element: <App />, },
   { path: '/note', element: <NotList />, },
-  { path: 'new', element: <New />, },
+  { path: '/new', element: <New />, },
+  { path: '/read', element: <NoteREUD />, },
+  { path: '/edit', element: <EditNote />, },
   { path: '*', element: <Navigate to='/' /> }
 
 ]
@@ -24,7 +28,7 @@ const routers: RouteObject[] = [
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Container>
-    <RouterProvider router={createBrowserRouter(routers)} />
+      <RouterProvider router={createBrowserRouter(routers)} />
     </Container>
   </StrictMode>,
 )

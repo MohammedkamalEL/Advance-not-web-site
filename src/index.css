@@ -28,3 +28,9 @@
   transform: translateY(-5px);
   box-shadow: 0 5px 8px 0 rgba(0, 0,0,0.2);
 }
+.bag{
+  background: linear-gradient(90deg, #ff00ea,#00eaff);
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}

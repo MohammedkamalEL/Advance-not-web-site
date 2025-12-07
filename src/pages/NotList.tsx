@@ -19,6 +19,7 @@ export default function NotList() {
     const [selected, setSelected] = useState<string[]>([]);
 
 
+
     const allTags = localStorage.getItem('Tags');
     const existTags: string[] = allTags ? JSON.parse(allTags) : [];
     // console.log(existTags);
@@ -33,9 +34,9 @@ export default function NotList() {
     const allNote: NoteProps = getNote ? JSON.parse(getNote).flat() : [];
 
     const filtterNote = allNote.filter(note => {
-
         return (title === '' || note.title.toLowerCase().includes(title.toLowerCase())) && (selected.length === 0 || selected.every(tag => note.selected.includes(tag)))
     })
+
     // console.log(filtterNote);
 
 
@@ -86,7 +87,7 @@ export default function NotList() {
                         </Col>
                     </Row>
                     <Row className="gap-4">
-                        {filtterNote.map(note => (<Col key={note.id}><Card id={note.id} title={note.title} textarea={note.textarea} selected={note.selected} /></Col>))}
+                        {filtterNote.length === 0 ? <h1 style={{  height: '70dvh', display: 'grid', placeItems: "center" }} className="bag">NO Note Yet</h1> : filtterNote.map(note => (<Col key={note.id}><Card id={note.id} title={note.title} textarea={note.textarea} selected={note.selected} /></Col>))}
                     </Row>
                 </Form>
             </div>
