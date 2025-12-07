@@ -29,7 +29,7 @@ export default function NoteREUD() {
                             <Button variant="primary">Edit</Button>
                         </Link>
                         <Button variant="outline-danger" onClick={() => handelDeleteNote(state.id)}>Delete</Button>
-                        <Link to='/note'>
+                        <Link to='/'>
                             <Button variant="outline-secondary" >Back</Button>
                         </Link>
                     </Stack>

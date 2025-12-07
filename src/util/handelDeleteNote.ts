@@ -9,6 +9,6 @@ export function handelDeleteNote(id: string) {
     // exastNote.delete(id)
     localStorage.setItem('New Note', JSON.stringify(exastNote));
     console.log(exastNote);
-    window.location.replace('/note')
+    window.location.replace('/')
 
 }

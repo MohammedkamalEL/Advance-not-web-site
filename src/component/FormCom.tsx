@@ -33,12 +33,9 @@ export default function FormCom({ state }: FormCon) {
     titleRef.current.value = ''
     textareaRef.current.value = ''
     setSelected([])
-    navegit('/note', { replace: true })
+    navegit('/', { replace: true })
   }
 
-  if (state) {
-    console.log('state');
-  }
 
   return (
     <Form onSubmit={handelSubmitForm}>
